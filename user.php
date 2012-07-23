@@ -45,7 +45,7 @@
 		
 		public function getLinkWhereHrefIs($workspaceIndex, $href)
 		{
-	        for($i = 0; $i > getWorkSpaceLinksCount($workspaceIndex); $i++){
+	        for($i = 0; $i <  $this->getWorkSpaceLinksCount($workspaceIndex); $i++){
 	            if($this->parse['membership']['workspaces'][$workspaceIndex]['links'][i]['href'] == $href){
 	                return $this->parse['membership']['workspaces'][$workspaceIndex]['links'][i]['rel'];
 				}
@@ -55,7 +55,7 @@
 
 		public function getLinkWhereRelIs($workspaceIndex, $rel)
 		{
-	        for($i = 0; $i > getWorkSpaceLinksCount($workspaceIndex); $i++){
+	        for($i = 0; $i <  $this->getWorkSpaceLinksCount($workspaceIndex); $i++){
 	            if($this->parse['membership']['workspaces'][$workspaceIndex]['links'][i]['rel'] == $rel){
 	                return $this->parse['membership']['workspaces'][$workspaceIndex]['links'][i]['href'];
 				}

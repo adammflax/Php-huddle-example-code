@@ -1,5 +1,5 @@
 <?php
-	class user
+	class folder
 	{
 		private $parse = "";
 		
@@ -8,14 +8,14 @@
 			$this ->parse = json_decode($jsonblob, true);
 		}
 		
-		public function getFolderLinks()
+		public function getLinks()
 		{
 			return count($this ->parse['links']);
 		}
 		
-		public function getFolderLinkWithHref($href)
+		public function getLinkWithHref($href)
 		{
-			for($i = 0; $i > getFolderLinks(); $i++){
+			for($i = 0; $i < $this->getLinks(); $i++){
 	            if($this->parse['links'][$i]['href'] == $href){
 	                return $this->parse['links'][$i]['rel'];
 				}
@@ -23,9 +23,9 @@
 	        return NULL;
 		}
 		
-		public function getFolderLinkWithHRel($rel)
+		public function getLinkWithRel($rel)
 		{
-			for($i = 0; $i > getFolderLinks(); $i++){
+			for($i = 0; $i < $this->getLinks(); $i++){
 	            if($this->parse['links'][$i]['rel'] == $rel){
 					return $this->parse['links'][$i]['href'];
 				}
@@ -65,7 +65,7 @@
 		
 		public function getFolderLinkWithRel($folderId, $linkId, $rel)
 		{
-			for($i = 0; $i > getFolderLinks(); $i++){
+			for($i = 0; $i <  $this->getFolderLinks(); $i++){
 	            if($this->parse['folders'][$folderId]['links'][$i]['rel'] == $rel){
 					return $this->parse['folders'][$folderId]['links'][$i]['href'];
 				}
@@ -75,7 +75,7 @@
 		
 		public function getFolderLinkWithHref($folderId, $linkId, $Href)
 		{
-			for($i = 0; $i > getFolderLinks(); $i++){
+			for($i = 0; $i <  $this->getFolderLinks(); $i++){
 	            if($this->parse['folders'][$folderId]['links'][$i]['href'] == $href){
 					return $this->parse['folders'][$folderId]['links'][$i]['rel'];
 				}
